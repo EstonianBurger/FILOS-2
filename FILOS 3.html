@@ -1,72 +1,195 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Select an Ivy League University</title>
-    <style>
-      form {
-        margin: 20px;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-      select {
-        margin-bottom: 10px;
-      }
-      #fraternity-options, #sorority-options {
-        margin-top: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Select an Ivy League University</h1>
-    <form>
-      <label for="university">Choose an Ivy League university:</label>
-      <select id="university" name="university">
-        <option value="">--Please choose an Ivy League university--</option>
-        <option value="brown">Brown University</option>
-        <option value="columbia">Columbia University</option>
-        <option value="cornell">Cornell University</option>
-        <option value="dartmouth">Dartmouth College</option>
-        <option value="harvard">Harvard University</option>
-        <option value="penn">University of Pennsylvania</option>
-        <option value="princeton">Princeton University</option>
-        <option value="yale">Yale University</option>
-      </select>
-      <br>
-      <label for="affiliation">What is your affiliation with this university?</label>
-      <select id="affiliation" name="affiliation">
-        <option value="">--Please choose your affiliation--</option>
-        <option value="pledge">Pledge</option>
-        <option value="member">Member</option>
-        <option value="alumni">Alumni</option>
-        <option value="party-seeker">Party-seeker</option>
-      </select>
-      <div id="fraternity-options" style="display: none;">
-        <label for="fraternity">Choose a fraternity:</label>
-        <select id="fraternity" name="fraternity">
-          <option value="">--Please choose a fraternity--</option>
-          <option value="sigma-nu">Sigma Nu</option>
-          <option value="leo">Leo</option>
-          <option value="chi-psi">Chi Psi</option>
-          <option value="edon">Edon</option>
-          <option value="aepi">AEPI</option>
-          <option value="deke">DEKE</option>
-        </select>
-      </div>
-      <div id="sorority-options" style="display: none;">
-        <label for="sorority">Choose a sorority:</label>
-        <select id="sorority" name="sorority">
-          <option value="">--Please choose a sorority--</option>
-          <option value="theta">Theta</option>
-          <option value="pi-phi">Pi Phi</option>
-          <option value="kkg">Kappa Kappa Gamma</option>
-          <option value="alpha-phi">Alpha Phi</option>
-        </select>
-      </div>
-      <input type="submit" value="Submit">
-    </form>
+
+<head>
+
+	<title>Select an Ivy League University</title>
+
+	<style>
+
+		body {
+
+			font-family: Arial, sans-serif;
+
+			background-color: #f2f2f2;
+
+		}
+
+
+
+		h1 {
+
+			color: #006699;
+
+			text-align: center;
+
+		}
+
+
+
+		form {
+
+			margin: auto;
+
+			width: 50%;
+
+			background-color: #fff;
+
+			padding: 20px;
+
+			border-radius: 10px;
+
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+		}
+
+
+
+		label {
+
+			display: block;
+
+			margin-bottom: 10px;
+
+			font-weight: bold;
+
+		}
+
+
+
+		select {
+
+			display: block;
+
+			width: 100%;
+
+			padding: 10px;
+
+			border: 1px solid #ccc;
+
+			border-radius: 5px;
+
+			box-sizing: border-box;
+
+			font-size: 16px;
+
+			margin-bottom: 20px;
+
+		}
+
+
+
+		select:focus {
+
+			outline: none;
+
+			border-color: #006699;
+
+		}
+
+
+
+		option {
+
+			color: #006699;
+
+		}
+
+
+
+		button {
+
+			background-color: #006699;
+
+			color: #fff;
+
+			border: none;
+
+			padding: 10px 20px;
+
+			border-radius: 5px;
+
+			font-size: 16px;
+
+			cursor: pointer;
+
+		}
+
+
+
+		button:hover {
+
+			background-color: #005580;
+
+		}
+
+
+
+	</style>
+
+</head>
+
+<body>
+
+	<h1>Select an Ivy League University</h1>
+
+	<p>Select University</p>
+
+	<form>
+
+		<select id="university" onchange="showOptions()">
+
+			<option value="">Select an Ivy League University</option>
+
+			<option value="Brown">Brown University</option>
+
+			<option value="Columbia">Columbia University</option>
+
+			<option value="Cornell">Cornell University</option>
+
+			<option value="Dartmouth">Dartmouth College</option>
+
+			<option value="Harvard">Harvard University</option>
+
+			<option value="Princeton">Princeton University</option>
+
+			<option value="University of Pennsylvania">University of Pennsylvania</option>
+
+			<option value="Yale">Yale University</option>
+
+		</select>
+
+		<div id="options"></div>
+
+		<button type="submit">Submit</button>
+
+	</form>
+
+	<script>
+
+		function showOptions() {
+
+			var university = document.getElementById("university").value;
+
+			var options = document.getElementById("options");
+
+
+
+			if (university) {
+
+				options.innerHTML = "<label for='status'>Are you a:</label><select id='status' name='status'><option value='member'>Current Student/Faculty/Staff</option><option value='alumni'>Alumni</option><option value='party-seeker'>Party Seeker</option><option value='other'>Other</option></select>";
+
+			} else {
+
+				options.innerHTML = "";
+
+			}
+
+		}
+
+	</script>
+
 </body>
+
 </html>
